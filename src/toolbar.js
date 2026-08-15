@@ -52,7 +52,7 @@
       padding: 8px;
       border: 1px solid rgba(255, 255, 255, 0.7);
       border-radius: 16px;
-      background: rgba(250, 252, 255, 0.88);
+      background: rgba(250, 252, 255, 0.6);
       box-shadow: 0 14px 38px rgba(15, 23, 42, 0.18), 0 3px 10px rgba(15, 23, 42, 0.1);
       backdrop-filter: blur(18px) saturate(145%);
       -webkit-backdrop-filter: blur(18px) saturate(145%);
@@ -162,7 +162,7 @@
       border-right: 0;
       border-radius: 12px 0 0 12px;
       color: #2563eb;
-      background: rgba(250, 252, 255, 0.9);
+      background: rgba(250, 252, 255, 0.6);
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
       backdrop-filter: blur(14px);
       transition: width 150ms ease, background 150ms ease;
@@ -178,7 +178,7 @@
     @media (prefers-color-scheme: dark) {
       .panel, .restore {
         border-color: rgba(148, 163, 184, 0.2);
-        background: rgba(15, 23, 42, 0.9);
+        background: rgba(15, 23, 42, 0.6);
         box-shadow: 0 14px 38px rgba(0, 0, 0, 0.38);
       }
       .action { color: #cbd5e1; }
@@ -220,14 +220,14 @@
 
     root.innerHTML = `
       <style>${styles}</style>
-      <nav class="panel" data-panel role="toolbar" aria-label="页面导航">
+      <nav class="panel" data-panel role="toolbar" aria-label="侧边导航" hidden>
         ${actionMarkup}
         <div class="divider" aria-hidden="true"></div>
         <button class="collapse" type="button" data-collapse aria-label="隐藏工具栏" title="隐藏工具栏">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 7.5 9 9M16.5 7.5l-9 9"/></svg>
         </button>
       </nav>
-      <button class="restore" type="button" data-restore aria-label="显示页面导航工具栏" title="显示工具栏" hidden>
+      <button class="restore" type="button" data-restore aria-label="显示侧边导航" title="显示侧边导航">
         ${icon('<path d="m9 7 5 5-5 5"/>')}
       </button>
     `;

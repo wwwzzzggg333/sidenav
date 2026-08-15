@@ -21,7 +21,7 @@ test('mounts one isolated toolbar with four navigation actions', () => {
   assert.equal(dom.window.document.querySelectorAll(`#${HOST_ID}`).length, 1);
   assert.ok(host.shadowRoot);
   assert.equal(host.shadowRoot.querySelectorAll('[data-action]').length, 4);
-  assert.equal(host.shadowRoot.querySelector('[role="toolbar"]').getAttribute('aria-label'), '页面导航');
+  assert.equal(host.shadowRoot.querySelector('[role="toolbar"]').getAttribute('aria-label'), '侧边导航');
 });
 
 test('navigation buttons invoke their matching actions', () => {
@@ -32,6 +32,14 @@ test('navigation buttons invoke their matching actions', () => {
   }
 
   assert.deepEqual(calls, ['top', 'pageUp', 'pageDown', 'bottom']);
+});
+
+test('toolbar starts collapsed with only the restore tab visible', () => {
+  const { host } = setup();
+  const root = host.shadowRoot;
+
+  assert.equal(root.querySelector('[data-panel]').hidden, true);
+  assert.equal(root.querySelector('[data-restore]').hidden, false);
 });
 
 test('collapse hides the action panel and restore shows it again', () => {
