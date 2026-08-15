@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Playwright / browser smoke-test artifacts
+output/
+.playwright-cli/
+
+# Local scratch notes
+1.md

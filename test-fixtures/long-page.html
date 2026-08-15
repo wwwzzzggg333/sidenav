@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='4' fill='%232563eb'/></svg>">
+  <title>页面导航工具栏测试页</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: auto; }
+    body { margin: 0; color: #e2e8f0; background: #08111f; font: 16px/1.7 system-ui, sans-serif; }
+    header { min-height: 100vh; display: grid; place-items: center; padding: 48px; background: radial-gradient(circle at 30% 20%, #1d4ed8, transparent 38%), #0f172a; }
+    header div { max-width: 760px; }
+    h1 { margin: 0 0 18px; font-size: clamp(42px, 8vw, 86px); line-height: 1; }
+    main { max-width: 860px; margin: auto; padding: 80px 32px 160px; }
+    section { min-height: 82vh; padding: 44px; margin: 0 0 30px; border: 1px solid #334155; border-radius: 28px; background: #111c30; }
+    h2 { color: #93c5fd; font-size: 34px; }
+    footer { min-height: 60vh; display: grid; place-items: center; background: #020617; font-size: 32px; }
+  </style>
+</head>
+<body>
+  <div id="page-navigation-toolbar-extension" aria-hidden="true"></div>
+  <header><div><h1>长页面测试</h1><p>用于验证顶部、逐页滚动、底部以及工具栏隐藏/恢复。</p></div></header>
+  <main>
+    <section><h2>第一章</h2><p>滚动开始。工具栏应始终固定在视口右侧中部。</p></section>
+    <section><h2>第二章</h2><p>向下翻页时应保留少量上一屏内容，帮助阅读者保持上下文。</p></section>
+    <section><h2>第三章</h2><p>Shadow DOM 会隔离页面样式与工具栏样式。</p></section>
+    <section><h2>第四章</h2><p>工具栏可以折叠为靠右的小型恢复入口。</p></section>
+  </main>
+  <footer>页面底部</footer>
+</body>
+</html>
