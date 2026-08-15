@@ -14,7 +14,7 @@ mkdirSync(dist, { recursive: true });
 if (existsSync(zipPath)) rmSync(zipPath);
 
 const sevenZip = findSevenZip();
-execFileSync(sevenZip, ['a', '-tzip', '-mx=9', zipPath, 'manifest.json', 'src', 'icons'], {
+execFileSync(sevenZip, ['a', '-tzip', '-mx=9', zipPath, 'manifest.json', 'src', 'icons', '_locales'], {
   cwd: root,
   stdio: 'inherit',
 });

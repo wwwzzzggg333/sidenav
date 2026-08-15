@@ -21,6 +21,10 @@
 
 Chrome 内部页面（例如 `chrome://extensions/`）不允许扩展注入脚本，这是浏览器的安全限制。
 
+## 多语言
+
+扩展名与描述会跟随 Chrome 界面语言自动切换：中文显示「侧边导航」，英文显示「SideNav」。文案位于 `_locales/zh_CN` 与 `_locales/en` 下的 `messages.json`。
+
 ## 开发验证
 
 ```powershell

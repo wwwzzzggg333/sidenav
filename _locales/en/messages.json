@@ -1,0 +1,8 @@
+{
+  "extensionName": {
+    "message": "SideNav"
+  },
+  "extensionDescription": {
+    "message": "A hideable toolbar on the right edge of web pages for jumping to the top, paging up and down, and reaching the bottom."
+  }
+}
