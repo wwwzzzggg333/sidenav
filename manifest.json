@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "页面导航工具栏",
+  "name": "侧边导航",
   "version": "1.0.0",
   "description": "在网页右侧提供回到顶部、上下翻页和直达底部的快捷工具栏。",
   "icons": {

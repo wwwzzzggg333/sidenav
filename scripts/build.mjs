@@ -7,7 +7,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { version } = JSON.parse(readFileSync(join(root, 'manifest.json'), 'utf8'));
 
 const dist = join(root, 'dist');
-const zipName = `page-navigation-toolbar-v${version}.zip`;
+const zipName = `sidenav-v${version}.zip`;
 const zipPath = join(dist, zipName);
 
 mkdirSync(dist, { recursive: true });

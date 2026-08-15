@@ -10,7 +10,7 @@ test('manifest packages the toolbar as a permission-free Manifest V3 content scr
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
   assert.equal(manifest.manifest_version, 3);
-  assert.equal(manifest.name, '页面导航工具栏');
+  assert.equal(manifest.name, '侧边导航');
   assert.deepEqual(manifest.permissions ?? [], []);
   assert.deepEqual(manifest.content_scripts[0].matches, ['http://*/*', 'https://*/*']);
   assert.deepEqual(manifest.content_scripts[0].js, [

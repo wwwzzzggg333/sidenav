@@ -1,5 +1,5 @@
 {
-  "name": "page-navigation-toolbar",
+  "name": "sidenav",
   "version": "1.0.0",
   "private": true,
   "description": "A Chrome extension providing a hideable page navigation toolbar.",
