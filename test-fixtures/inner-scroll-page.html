@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='4' fill='%232563eb'/></svg>">
+  <title>内部滚动容器测试页</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body { color: #e2e8f0; background: #08111f; font: 16px/1.7 system-ui, sans-serif; }
+    #app {
+      height: 100%;
+      overflow: auto;
+      scroll-behavior: auto;
+    }
+    header { min-height: 100vh; display: grid; place-items: center; padding: 48px; background: radial-gradient(circle at 30% 20%, #7c3aed, transparent 38%), #0f172a; }
+    header div { max-width: 760px; }
+    h1 { margin: 0 0 18px; font-size: clamp(36px, 7vw, 72px); line-height: 1; }
+    main { max-width: 860px; margin: auto; padding: 80px 32px 160px; }
+    section { min-height: 82vh; padding: 44px; margin: 0 0 30px; border: 1px solid #334155; border-radius: 28px; background: #111c30; }
+    h2 { color: #c4b5fd; font-size: 34px; }
+    footer { min-height: 60vh; display: grid; place-items: center; background: #020617; font-size: 32px; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header><div><h1>内部滚动测试</h1><p>html/body 锁定，真正滚动的是 #app。窗口滚动按钮在修复前不会移动此页面。</p></div></header>
+    <main>
+      <section><h2>第一章</h2><p>这是许多 SPA（如 X、Gmail、Notion）使用的滚动模型。</p></section>
+      <section><h2>第二章</h2><p>点击向下翻页应滚动 #app，而不是 document。</p></section>
+      <section><h2>第三章</h2><p>回到顶部和直达底部也应作用在同一个内部容器上。</p></section>
+      <section><h2>第四章</h2><p>翻页步长按该容器的可视高度计算，并保留 120px 阅读上下文。</p></section>
+    </main>
+    <footer>内部容器底部</footer>
+  </div>
+</body>
+</html>

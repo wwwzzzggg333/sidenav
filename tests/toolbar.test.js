@@ -2,7 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { JSDOM } = require('jsdom');
 
-const { HOST_ID, mountToolbar } = require('../src/toolbar.js');
+const { HOST_ID, mountToolbar, observeToolbar } = require('../src/toolbar.js');
 
 function setup() {
   const dom = new JSDOM('<!doctype html><html><body></body></html>');
@@ -64,6 +64,23 @@ test('mounting twice reuses the existing toolbar', () => {
 
   assert.equal(second, host);
   assert.equal(dom.window.document.querySelectorAll(`#${HOST_ID}`).length, 1);
+});
+
+test('observeToolbar remounts after the host is removed from the document', async () => {
+  const { dom, host } = setup();
+  observeToolbar(dom.window.document, Object.fromEntries(
+    ['top', 'pageUp', 'pageDown', 'bottom'].map((name) => [name, () => {}])
+  ));
+
+  host.remove();
+  await new Promise((resolve) => {
+    setTimeout(resolve, 0);
+  });
+
+  const remounted = [...dom.window.document.body.children].find((node) => node.shadowRoot);
+  assert.ok(remounted);
+  assert.notEqual(remounted, host);
+  assert.ok(remounted.shadowRoot.querySelector('[data-action="top"]'));
 });
 
 test('a page-owned element with the host id cannot block the toolbar', () => {

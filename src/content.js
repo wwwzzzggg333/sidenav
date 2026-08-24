@@ -2,5 +2,5 @@
   'use strict';
 
   const actions = globalThis.NavbarScrollActions.createScrollActions(globalThis);
-  globalThis.NavbarToolbar.mountToolbar(document, actions);
+  globalThis.NavbarToolbar.observeToolbar(document, actions);
 })();

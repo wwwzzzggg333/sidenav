@@ -257,7 +257,21 @@
     return host;
   }
 
-  const api = { HOST_ID, mountToolbar };
+  function observeToolbar(doc, actions) {
+    mountToolbar(doc, actions);
+    const Observer = doc.defaultView?.MutationObserver || globalScope.MutationObserver;
+    if (typeof Observer !== 'function') return;
+
+    const observer = new Observer(() => {
+      mountToolbar(doc, actions);
+    });
+
+    observer.observe(doc.documentElement, { childList: true });
+    if (doc.body) observer.observe(doc.body, { childList: true });
+    return observer;
+  }
+
+  const api = { HOST_ID, mountToolbar, observeToolbar };
   globalScope.NavbarToolbar = api;
 
   if (typeof module !== 'undefined' && module.exports) {
